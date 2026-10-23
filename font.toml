@@ -1,7 +1,7 @@
 # Font metadata. Glyphs live in source/font-8.bdf; this file holds what BDF cannot.
 family = "Who Ths Font"
 style = "Regular"
-version = "1.1"
+version = "1.11"
 copyright = "Copyright 2026 Artem Repnikov (https://github.com/WhoThsGuy)"
 # Written into the TTF name table (ids 13 and 14) so the licence travels with the file.
 license = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
