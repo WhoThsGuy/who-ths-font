@@ -1,6 +1,7 @@
 # Who Ths Font (WTFont)
 
-A proportional 8 px pixel font covering Basic Latin and Ukrainian Cyrillic,
+A proportional 8 px pixel font covering Basic Latin, Ukrainian Cyrillic and the
+punctuation, arrows, math and game-UI symbols that menus and dialogs tend to use,
 built as a TrueType font with square-pixel outlines for use in games and mods.
 
 ## Download

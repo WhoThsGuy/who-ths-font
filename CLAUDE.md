@@ -4,7 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A proportional 8 px pixel font (Basic Latin + Ukrainian Cyrillic), shipped as a TTF with
+A proportional 8 px pixel font (Basic Latin + Ukrainian Cyrillic + common punctuation,
+arrows, math and game-UI symbols), shipped as a TTF with
 square-pixel outlines for games and mods. Glyphs are drawn in the repo's own browser editor
 (`python -m pixelfont.edit`); this repo turns the drawing into a font, checks it, and renders
 previews. Everything is the `pixelfont` Python package: CLI modules plus one HTML page.
