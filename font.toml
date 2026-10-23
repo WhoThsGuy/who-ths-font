@@ -1,8 +1,11 @@
 # Font metadata. Glyphs live in source/font-8.bdf; this file holds what BDF cannot.
-family = "PixelUA"
+family = "Who Ths Font"
 style = "Regular"
 version = "0.1"
-copyright = "Copyright 2026 Artem Repnikov"
+copyright = "Copyright 2026 Artem Repnikov (https://github.com/WhoThsGuy)"
+# Written into the TTF name table (ids 13 and 14) so the licence travels with the file.
+license = "This Font Software is licensed under the SIL Open Font License, Version 1.1."
+license_url = "https://openfontlicense.org"
 
 # Pixel grid. One em = pixel_size pixels, so 1 pixel = upm / pixel_size font units.
 # The font renders crisp only at integer multiples of pixel_size.

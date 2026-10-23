@@ -68,7 +68,7 @@ def build_font(cfg: Config, font: BdfFont) -> TTFont:
     fb.setupGlyf(glyphs)
     fb.setupHorizontalMetrics(metrics)
     fb.setupHorizontalHeader(ascent=ascent, descent=-descent, lineGap=0)
-    fb.setupNameTable({
+    names = {
         "familyName": cfg.family,
         "styleName": cfg.style,
         "psName": cfg.ps_name,
@@ -76,7 +76,10 @@ def build_font(cfg: Config, font: BdfFont) -> TTFont:
         "uniqueFontIdentifier": f"{cfg.ps_name}:{cfg.version}",
         "version": f"Version {cfg.version}",
         "copyright": cfg.copyright,
-    })
+        "licenseDescription": cfg.license,
+        "licenseInfoURL": cfg.license_url,
+    }
+    fb.setupNameTable({k: v for k, v in names.items() if v})
     fb.setupOS2(
         version=4,
         sTypoAscender=ascent, sTypoDescender=-descent, sTypoLineGap=0,
@@ -84,7 +87,7 @@ def build_font(cfg: Config, font: BdfFont) -> TTFont:
         fsSelection=(1 << 6) | (1 << 7),  # REGULAR | USE_TYPO_METRICS
         fsType=0,
         sxHeight=top_of(ord("x")), sCapHeight=top_of(ord("H")),
-        achVendID="PXUA",
+        achVendID="WTFT",
     )
     fb.setupPost()
 

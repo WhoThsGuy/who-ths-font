@@ -19,6 +19,8 @@ class Config:
     style: str
     version: str
     copyright: str
+    license: str
+    license_url: str
     pixel_size: int
     upm: int
     antialias: bool
@@ -48,6 +50,8 @@ def load_config(path: Path = CONFIG_PATH) -> Config:
         style=data.get("style", "Regular"),
         version=str(data.get("version", "0.1")),
         copyright=data.get("copyright", ""),
+        license=data.get("license", ""),
+        license_url=data.get("license_url", ""),
         pixel_size=int(data["pixel_size"]),
         upm=int(data.get("upm", 1024)),
         antialias=bool(data.get("antialias", False)),

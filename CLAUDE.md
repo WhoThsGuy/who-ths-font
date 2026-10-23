@@ -36,7 +36,7 @@ for `tomllib`.
 ```
 pip install -r requirements.txt
 python -m pixelfont.edit             # glyph editor at http://127.0.0.1:8765, saves into the BDF
-python -m pixelfont.build            # BDF -> build/PixelUA-Regular.ttf
+python -m pixelfont.build            # BDF -> build/WhoThsFont-Regular.ttf
 python -m pixelfont.check            # charset coverage + metrics sanity; exit 1 on problems
 python -m pixelfont.preview          # build/preview.png (4x, aliased) + build/preview.html
 python -m pixelfont.show Ї A U+0490  # print glyphs as ASCII grids with baseline and advance
