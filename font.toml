@@ -1,0 +1,21 @@
+# Font metadata. Glyphs live in source/font-8.bdf; this file holds what BDF cannot.
+family = "PixelUA"
+style = "Regular"
+version = "0.1"
+copyright = "Copyright 2026 Artem Repnikov"
+
+# Pixel grid. One em = pixel_size pixels, so 1 pixel = upm / pixel_size font units.
+# The font renders crisp only at integer multiples of pixel_size.
+# Line height is NOT set here: it is FONT_ASCENT + FONT_DESCENT in the BDF header,
+# which is also the strike size FontForge shows (10 px for ascent 8 + descent 2).
+pixel_size = 8
+upm = 1024
+
+# false writes a gasp table that asks rasterizers for no antialiasing at any size.
+antialias = false
+
+# Guide lines shown by the editor (python -m pixelfont.edit), in pixel rows above
+# the baseline. They do not affect the built font.
+[guides]
+cap_height = 7
+x_height = 5

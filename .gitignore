@@ -1,0 +1,9 @@
+build/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# FontForge scratch files: the BDF is the source of truth
+*.sfd
+*.sfd~
+*.bak
