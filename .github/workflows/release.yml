@@ -1,0 +1,54 @@
+# Builds the font and publishes a GitHub Release whenever a v* tag is pushed.
+# The tag must equal "v" + the version in font.toml.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Check that the tag matches font.toml
+        run: |
+          python - <<'PY'
+          import os, sys, tomllib
+          version = tomllib.load(open("font.toml", "rb"))["version"]
+          tag = os.environ["GITHUB_REF_NAME"]
+          if tag != f"v{version}":
+              sys.exit(f"tag {tag} does not match font.toml version {version}")
+          PY
+
+      - run: python -m pytest -q
+      - run: python -m pixelfont.check
+      - run: python -m pixelfont.build
+      - run: python -m pixelfont.preview
+
+      - name: Pack the TTF with its licence
+        run: zip -j "build/WhoThsFont-${GITHUB_REF_NAME#v}.zip" build/WhoThsFont-Regular.ttf OFL.txt
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: Who Ths Font ${{ github.ref_name }}
+          generate_release_notes: true
+          body: |
+            ![preview](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/preview.png)
+
+            `WhoThsFont-Regular.ttf` is an 8 px pixel font: use it at 8, 16, 24, 32 px or any
+            other integer multiple. The zip contains the TTF together with its licence (OFL 1.1).
+          files: |
+            build/WhoThsFont-*.zip
+            build/WhoThsFont-Regular.ttf
+            build/preview.png

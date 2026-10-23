@@ -3,6 +3,13 @@
 A proportional 8 px pixel font covering Basic Latin and Ukrainian Cyrillic,
 built as a TrueType font with square-pixel outlines for use in games and mods.
 
+## Download
+
+Grab `WhoThsFont-<version>.zip` from the
+[Releases page](https://github.com/WhoThsGuy/who-ths-font/releases): it holds
+`WhoThsFont-Regular.ttf` and the licence. Use the font at 8, 16, 24, 32 px or
+any other integer multiple of 8.
+
 ## Workflow
 
 1. `python -m pixelfont.edit` opens the glyph editor in your browser. Pick a
@@ -22,6 +29,15 @@ pip install -r requirements.txt
 
 The font is designed at 8 px and stays crisp at 16, 24, 32 px and other
 integer multiples. Do not use it at sizes in between.
+
+## Releasing
+
+1. Set `version` in `font.toml` and commit.
+2. `git tag -a vX.Y -m "Who Ths Font X.Y"` and `git push origin vX.Y`.
+
+The `Release` workflow runs the tests and `check`, builds the TTF and preview,
+zips the TTF with `OFL.txt` and publishes a GitHub Release with those files.
+It fails if the tag does not match `font.toml`.
 
 ## License
 
